@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "WebClip PDF",
+  "version": "1.0",
+  "description": "Send the current page to a local server that filters it by topic and saves a PDF.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "WebClip PDF"
+  }
+}

@@ -17,7 +17,7 @@ from playwright.sync_api import sync_playwright
 OUT_DIR = pathlib.Path(__file__).parent / "output"
 OUT_DIR.mkdir(exist_ok=True)
 
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "openai/gpt-oss-120b"
 BATCH = 15
 
 groq = OpenAI(
@@ -185,7 +185,7 @@ def render_pdf(units, title, url, path):
         f"{body}</body></html>"
     )
     with sync_playwright() as p:
-        browser = p.chromium.launch()
+        browser = p.chromium.launch(channel="msedge")
         page = browser.new_page()
         page.set_content(html, wait_until="load")
         page.pdf(path=str(path), format="A4", print_background=True)
